@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Committee (Admin) View &mdash; 108 Prasadam Naivedyam</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<div class="top-banner">
+  <h1>Committee (Admin) View</h1>
+  <p>108 Prasadam Naivedyam &mdash; Submission Tracker</p>
+  <div class="event-date">📅 24th September &mdash; Evening Pooja, 6:00 PM</div>
+  <div class="nav-links">
+    <a href="index.html">Resident Sign-up</a>
+    <a href="admin.html" class="active">Committee (Admin) View</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div id="loginCard" class="card admin-login">
+    <h2>🔒 Committee Login</h2>
+    <div class="field">
+      <label for="adminPassword">Password</label>
+      <input type="text" id="adminPassword" placeholder="Enter committee password" />
+    </div>
+    <button class="submit-btn" id="loginBtn">View Submissions</button>
+    <div id="loginStatus" class="status-msg"></div>
+  </div>
+
+  <div id="dashboard" class="card" style="display:none;">
+    <h2>📊 Submission Dashboard</h2>
+    <button class="refresh-btn" id="refreshBtn">↻ Refresh Data</button>
+    <div class="stat-row">
+      <div class="stat-box"><div class="num" id="statSubmitted">0</div><div class="label">Items Submitted</div></div>
+      <div class="stat-box"><div class="num" id="statRemaining">108</div><div class="label">Items Remaining</div></div>
+      <div class="stat-box"><div class="num" id="statResidents">0</div><div class="label">Residents Participated</div></div>
+    </div>
+    <input type="text" id="searchBox" class="search-box" placeholder="Search by name, mobile, tower, flat or item..." style="width:100%;padding:10px 12px;border:1.5px solid #e6d9c6;border-radius:10px;font-size:14px;" />
+    <div class="admin-table-wrap">
+      <table class="admin-table" id="adminTable">
+        <thead>
+          <tr>
+            <th>#</th><th>Timestamp</th><th>Name</th><th>Mobile</th><th>Tower</th><th>Flat</th><th>Item #</th><th>Prasadam</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<footer>Committee access only &mdash; password protected.</footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>

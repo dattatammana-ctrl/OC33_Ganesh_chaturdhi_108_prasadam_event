@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>108 Prasadam Naivedyam to Lord Vinayaka</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<div class="top-banner">
+  <h1>108 Prasadam Naivedyam to Lord Vinayaka</h1>
+  <p>Ganesh Chaturthi Celebrations &mdash; Community Seva Sign-up</p>
+  <div class="event-date">📅 24th September &mdash; Evening Pooja, 6:00 PM</div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Resident Sign-up</a>
+    <a href="admin.html">Committee (Admin) View</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card countdown-card">
+    <h2>🪔 108 Varieties Countdown</h2>
+    <div class="countdown-bar-track">
+      <div class="countdown-bar-fill" id="countdownBarFill"></div>
+    </div>
+    <div class="countdown-label" id="countdownCount">0 out of 108 allotted</div>
+  </div>
+
+  <div class="card guidelines">
+    <h2>🙏 Guidelines Before Submission</h2>
+    <ul>
+      <li>All <span class="highlight">108 offerings</span> are traditionally prepared following strict <span class="highlight">satvik principles</span> — freshly made in cleaned sacred vessels, devoid of onions or garlic, cooked with pure ghee and edible devotion, and offered with heartfelt prayer.</li>
+      <li><span class="highlight">Any quantity is not applicable</span> — it is entirely based on the feasibility of the resident.</li>
+      <li>Each Prasadam item can be prepared/submitted by <span class="highlight">only one resident</span>. Once claimed, it will be shown as taken (with the flat number) and locked for others.</li>
+      <li>If a resident wishes to contribute <span class="highlight">more than one item</span>, they must submit <span class="highlight">separate entries</span> — one submission per item, each with a different Prasadam selected.</li>
+      <li>Please deliver the prepared Prasadam in time for the <span class="highlight">Evening Pooja on 24th September, 6:00 PM</span>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📝 Resident Submission Form</h2>
+    <div id="selectedBanner" class="selected-item-banner"></div>
+    <form id="submissionForm">
+      <div class="field">
+        <label for="name">Name <span class="required-star">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+      </div>
+      <div class="field">
+        <label for="mobile">Mobile Number <span class="required-star">*</span></label>
+        <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" maxlength="10" required />
+      </div>
+      <div class="field">
+        <label for="tower">Tower Number <span class="required-star">*</span></label>
+        <select id="tower" name="tower" required>
+          <option value="" disabled selected>Select Tower</option>
+          <option value="T1">T1</option>
+          <option value="T2">T2</option>
+          <option value="T3">T3</option>
+          <option value="T4">T4</option>
+          <option value="T5">T5</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="flat">Flat Number <span class="required-star">*</span></label>
+        <input type="text" id="flat" name="flat" placeholder="e.g. 1203" required />
+      </div>
+      <p class="required-note">All fields marked <span class="required-star">*</span> are mandatory, including selecting one Prasadam item from the menu below.</p>
+      <button type="submit" class="submit-btn" id="submitBtn">Submit My Prasadam Pledge</button>
+      <div id="statusMsg" class="status-msg"></div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>🍽️ Prasadam Menu (122 items) &mdash; Tap to Select Your Item</h2>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:-4px;">
+      Green = your selection · Grey = already taken by another resident (flat number shown) · White = available
+    </p>
+    <div class="legend">
+      <span><span class="dot available"></span>Available</span>
+      <span><span class="dot selected"></span>Selected by you</span>
+      <span><span class="dot taken"></span>Taken</span>
+    </div>
+    <div id="menuContainer"></div>
+  </div>
+
+</div>
+
+<footer>Made with devotion for our community's Ganesh Chaturthi celebrations 🕉️</footer>
+
+<script src="assets/prasadam-data.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
