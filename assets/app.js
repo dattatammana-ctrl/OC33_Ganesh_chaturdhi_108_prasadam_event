@@ -2,8 +2,23 @@
 
 let selectedItem = null; // { itemNumber, itemName }
 let takenItems = {}; // itemNumber -> { tower, flat }
+let menuItems = PRASADAM_ITEMS; // live-loaded from the "MenuItems" sheet tab; falls back to the bundled list below if the fetch fails
 
 function el(id) { return document.getElementById(id); }
+
+async function loadMenuItems() {
+  try {
+    const res = await fetch(API_URL + "?action=menu", { method: "GET" });
+    const data = await res.json();
+    if (data.ok && Array.isArray(data.items) && data.items.length) {
+      menuItems = data.items
+        .map((it) => ({ n: Number(it.n), name: String(it.name) }))
+        .sort((a, b) => a.n - b.n);
+    }
+  } catch (err) {
+    console.error("Failed to load menu from sheet, using bundled fallback list", err);
+  }
+}
 
 function renderMenu() {
   const container = el("menuContainer");
@@ -12,7 +27,7 @@ function renderMenu() {
   const grid = document.createElement("div");
   grid.className = "menu-grid";
 
-  PRASADAM_ITEMS.forEach((item) => {
+  menuItems.forEach((item) => {
     const taken = takenItems[item.n];
     const isSelected = selectedItem && selectedItem.itemNumber === item.n;
 
@@ -152,6 +167,9 @@ el("submissionForm").addEventListener("submit", async (e) => {
 });
 
 // Init
-renderMenu();
-loadTakenItems();
-setInterval(loadTakenItems, 20000); // refresh availability every 20s
+(async function init() {
+  await loadMenuItems();
+  renderMenu();
+  await loadTakenItems();
+  setInterval(loadTakenItems, 20000); // refresh availability every 20s
+})();
