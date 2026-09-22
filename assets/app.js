@@ -24,6 +24,11 @@ function renderMenu() {
   const container = el("menuContainer");
   container.innerHTML = "";
 
+  const heading = el("menuHeading");
+  if (heading) {
+    heading.textContent = "🍽️ Prasadam Menu (" + menuItems.length + " items) — Tap to Select Your Item";
+  }
+
   const grid = document.createElement("div");
   grid.className = "menu-grid";
 
