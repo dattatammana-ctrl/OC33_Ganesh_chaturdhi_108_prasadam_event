@@ -84,7 +84,7 @@ function renderDashboard() {
 
   el("statSubmitted").textContent = allSubmissions.length;
   el("statRemaining").textContent = Math.max(108 - allSubmissions.length, 0);
-  el("statResidents").textContent = new Set(allSubmissions.map((s) => s.mobile)).size;
+  el("statResidents").textContent = new Set(allSubmissions.map((s) => String(s.name).trim().toLowerCase())).size;
 
   const tbody = el("adminTableBody");
   tbody.innerHTML = "";
